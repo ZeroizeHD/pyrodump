@@ -26,7 +26,7 @@ def hopping_channel():
         elif num == 13:
             num = 0
         lock.release()
-        time.sleep(0.3)
+        time.sleep(0.5)
 
 
 def get_ap_list(pkt):
