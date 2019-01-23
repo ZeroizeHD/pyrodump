@@ -20,7 +20,7 @@ def hopping_channel(interface):
 
     lock = Lock()
     while True:
-        os.system("iwconfig %s channel %s" % interface, hopping_ch[num])
+        os.system("iwconfig %s channel %s" % (interface, hopping_ch[num]))
         lock.acquire()
         if num != 13:
             num = num + 1
