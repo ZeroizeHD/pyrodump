@@ -180,7 +180,7 @@ class Dot11:
             self.ext_flag_count += 1
             self.ext_flag = (pkt[7+(4*self.ext_flag_count)] & 0b10000000) >> 7
 
-        self.base_length = 8 + (4 * self.ext_flag_count)  # version, pad, len, present, 확장된 present 각각의 길이를 합한 길이
+        self.base_length = 8 + (4 * self.ext_flag_count)  # Sum length of version, pad, len, present, extended present
 
         self.pwr = get_pwr(pkt, self.present_flag_list, self.base_length)
 
