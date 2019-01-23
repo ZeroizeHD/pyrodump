@@ -1,9 +1,3 @@
-"""
-해당 프로그램은 airodump와 유사한 기능을 구현하기 위해  Beacon Frame, Probe Request, 
-Probe Response, Data Frame에 대한 정보를 이용하며 나머지 Frame에 대한 정보는 구하지 않는다.
-"""
-
-
 def get_channel(pkt, i, length):
     channel = pkt[i+1+length]
 
