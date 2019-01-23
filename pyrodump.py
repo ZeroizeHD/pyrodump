@@ -44,17 +44,17 @@ def print_result():
         scr.resize(200, 120)
 
         if elapsed_time < 60:
-            scr.addstr(0, 0, "CH  %s ][ Elapsed: %s s ][ %s-%s-%s %s:%s" % (
+            scr.addstr(0, 0, "CH %2s ][ Elapsed: %s s ][ %s-%s-%s %s:%s" % (
                 hopping_ch[num], elapsed_time, now_time.year, now_time.month, now_time.day, now_time.hour,
                 now_time.minute))
 
         elif 60 <= elapsed_time < 3600:
-            scr.addstr(0, 0, "CH  %s ][ Elapsed: %s mins ][ %s-%s-%s %s:%s" % (
+            scr.addstr(0, 0, "CH %2s ][ Elapsed: %s mins ][ %s-%s-%s %s:%s" % (
                 hopping_ch[num], int(elapsed_time / 60), now_time.year, now_time.month, now_time.day, now_time.hour,
                 now_time.minute))
 
         elif elapsed_time >= 3600:
-            scr.addstr(0, 0, "CH  %s ][ Elapsed: %s hours ][ %s-%s-%s %s:%s" % (
+            scr.addstr(0, 0, "CH %2s ][ Elapsed: %s hours ][ %s-%s-%s %s:%s" % (
                 hopping_ch[num], int(elapsed_time / 3600), now_time.year, now_time.month, now_time.day, now_time.hour,
                 now_time.minute))
 

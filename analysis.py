@@ -82,78 +82,35 @@ def get_mgt_addr(pkt, radiotap_length):
     return addr1, addr2, addr3
 
 
-def get_data_addr(pkt, radiotap_length, to_ds, from_ds):
-    if to_ds is False or from_ds is False:
-        addr1 = "%s:%s:%s:%s:%s:%s" % (
-            hex(pkt[radiotap_length + 4])[2:].zfill(2),
-            hex(pkt[radiotap_length + 5])[2:].zfill(2),
-            hex(pkt[radiotap_length + 6])[2:].zfill(2),
-            hex(pkt[radiotap_length + 7])[2:].zfill(2),
-            hex(pkt[radiotap_length + 8])[2:].zfill(2),
-            hex(pkt[radiotap_length + 9])[2:].zfill(2)
-        )
+def get_data_addr(pkt, radiotap_length):
+    addr1 = "%s:%s:%s:%s:%s:%s" % (
+        hex(pkt[radiotap_length + 4])[2:].zfill(2),
+        hex(pkt[radiotap_length + 5])[2:].zfill(2),
+        hex(pkt[radiotap_length + 6])[2:].zfill(2),
+        hex(pkt[radiotap_length + 7])[2:].zfill(2),
+        hex(pkt[radiotap_length + 8])[2:].zfill(2),
+        hex(pkt[radiotap_length + 9])[2:].zfill(2)
+    )
 
-        addr2 = "%s:%s:%s:%s:%s:%s" % (
-            hex(pkt[radiotap_length + 10])[2:].zfill(2),
-            hex(pkt[radiotap_length + 11])[2:].zfill(2),
-            hex(pkt[radiotap_length + 12])[2:].zfill(2),
-            hex(pkt[radiotap_length + 13])[2:].zfill(2),
-            hex(pkt[radiotap_length + 14])[2:].zfill(2),
-            hex(pkt[radiotap_length + 15])[2:].zfill(2)
-        )
+    addr2 = "%s:%s:%s:%s:%s:%s" % (
+        hex(pkt[radiotap_length + 10])[2:].zfill(2),
+        hex(pkt[radiotap_length + 11])[2:].zfill(2),
+        hex(pkt[radiotap_length + 12])[2:].zfill(2),
+        hex(pkt[radiotap_length + 13])[2:].zfill(2),
+        hex(pkt[radiotap_length + 14])[2:].zfill(2),
+        hex(pkt[radiotap_length + 15])[2:].zfill(2)
+    )
 
-        addr3 = "%s:%s:%s:%s:%s:%s" % (
-            hex(pkt[radiotap_length + 16])[2:].zfill(2),
-            hex(pkt[radiotap_length + 17])[2:].zfill(2),
-            hex(pkt[radiotap_length + 18])[2:].zfill(2),
-            hex(pkt[radiotap_length + 19])[2:].zfill(2),
-            hex(pkt[radiotap_length + 20])[2:].zfill(2),
-            hex(pkt[radiotap_length + 21])[2:].zfill(2)
-        )
+    addr3 = "%s:%s:%s:%s:%s:%s" % (
+        hex(pkt[radiotap_length + 16])[2:].zfill(2),
+        hex(pkt[radiotap_length + 17])[2:].zfill(2),
+        hex(pkt[radiotap_length + 18])[2:].zfill(2),
+        hex(pkt[radiotap_length + 19])[2:].zfill(2),
+        hex(pkt[radiotap_length + 20])[2:].zfill(2),
+        hex(pkt[radiotap_length + 21])[2:].zfill(2)
+    )
 
-        return addr1, addr2, addr3
-
-    else:
-        addr1 = "%s:%s:%s:%s:%s:%s" % (
-            hex(pkt[radiotap_length + 4])[2:].zfill(2),
-            hex(pkt[radiotap_length + 5])[2:].zfill(2),
-            hex(pkt[radiotap_length + 6])[2:].zfill(2),
-            hex(pkt[radiotap_length + 7])[2:].zfill(2),
-            hex(pkt[radiotap_length + 8])[2:].zfill(2),
-            hex(pkt[radiotap_length + 9])[2:].zfill(2)
-        )
-
-        addr2 = "%s:%s:%s:%s:%s:%s" % (
-            hex(pkt[radiotap_length + 10])[2:].zfill(2),
-            hex(pkt[radiotap_length + 11])[2:].zfill(2),
-            hex(pkt[radiotap_length + 12])[2:].zfill(2),
-            hex(pkt[radiotap_length + 13])[2:].zfill(2),
-            hex(pkt[radiotap_length + 14])[2:].zfill(2),
-            hex(pkt[radiotap_length + 15])[2:].zfill(2)
-        )
-
-        addr3 = "%s:%s:%s:%s:%s:%s" % (
-            hex(pkt[radiotap_length + 16])[2:].zfill(2),
-            hex(pkt[radiotap_length + 17])[2:].zfill(2),
-            hex(pkt[radiotap_length + 18])[2:].zfill(2),
-            hex(pkt[radiotap_length + 19])[2:].zfill(2),
-            hex(pkt[radiotap_length + 20])[2:].zfill(2),
-            hex(pkt[radiotap_length + 21])[2:].zfill(2)
-        )
-
-        try:
-            addr4 = "%s:%s:%s:%s:%s:%s" % (
-                hex(pkt[radiotap_length + 24])[2:].zfill(2),
-                hex(pkt[radiotap_length + 25])[2:].zfill(2),
-                hex(pkt[radiotap_length + 26])[2:].zfill(2),
-                hex(pkt[radiotap_length + 27])[2:].zfill(2),
-                hex(pkt[radiotap_length + 28])[2:].zfill(2),
-                hex(pkt[radiotap_length + 29])[2:].zfill(2)
-            )
-        except IndexError:
-            return addr1, addr2, addr3
-
-        return addr1, addr2, addr3, addr4
+    return addr1, addr2, addr3
 
 
 def get_preamble(pkt, fixed_mac_body):
@@ -305,11 +262,4 @@ class Dot11:
             self.sub_type = get_data_sub_type(pkt, self.radiotap_length)
             self.to_ds = get_to_ds(pkt, self.radiotap_length)
             self.from_ds = get_from_ds(pkt, self.radiotap_length)
-            if self.to_ds is False or self.from_ds is False:
-                self.addr1, self.addr2, self.addr3 = get_data_addr(pkt, self.radiotap_length, self.to_ds, self.from_ds)
-            else:
-                try:
-                    self.addr1, self.addr2, self.addr3, self.addr4 = get_data_addr(pkt, self.radiotap_length, self.to_ds, self.from_ds)
-                except ValueError:
-                    self.addr1, self.addr2, self.addr3 = get_data_addr(pkt, self.radiotap_length, self.to_ds, self.from_ds)
-
+            self.addr1, self.addr2, self.addr3 = get_data_addr(pkt, self.radiotap_length)
