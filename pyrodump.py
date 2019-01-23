@@ -14,13 +14,13 @@ hopping_ch = ["1", "7", "13", "2", "8", "14", "3", "9", "4", "10", "5", "11", "6
 num = 0
 
 
-def hopping_channel():
+def hopping_channel(interface):
     global hopping_ch
     global num
 
     lock = Lock()
     while True:
-        os.system("iwconfig mon0 channel %s" % hopping_ch[num])
+        os.system("iwconfig %s channel %s" % interface, hopping_ch[num])
         lock.acquire()
         if num != 13:
             num = num + 1
@@ -128,7 +128,7 @@ def get_ap_list(interface):
 
 
 def main(interface):
-    Thread(target=hopping_channel).start()
+    Thread(target=hopping_channel, args=(interface,)).start()
     Thread(target=print_result).start()
 
     get_ap_list(interface)
