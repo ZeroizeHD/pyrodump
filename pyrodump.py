@@ -120,12 +120,7 @@ def get_ap_list(interface):
                         if ap_list[x][0] == dot11.addr1 or ap_list[x][0] == dot11.addr2 or ap_list[x][0] == dot11.addr3:
                             ap_list[x][3] += 1
                             break
-                else:
-                    for x in range(len(ap_list)):
-                        if ap_list[x][0] == dot11.addr1 or ap_list[x][0] == dot11.addr2 or ap_list[x][0] == dot11.addr3 or ap_list[x][0] == dot11.addr4:
-                            ap_list[x][3] += 1
-                            break
-
+                            
 
 def main(interface):
     Thread(target=hopping_channel, args=(interface,)).start()
