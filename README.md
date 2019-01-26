@@ -8,6 +8,8 @@
 ## Frames Analysis
 Beacon, Probe Request, Probe Response, Data Frames 각 프레임을 airodump-ng로 보면 다음과 같이 나타난다.
 
+확인된 것 
+
 ### 1. Beacon
 Wireshark에서 Beacon Frame에 대한 정보만을 얻기위해서는 Display filter에 **wlan.fc.type_subtype==8**를 입력한다.
 
@@ -52,7 +54,7 @@ Wireshark에서 Data Frames(To Ds == 1 and From Ds ==0)에 대한 정보만을 �
 
 <p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51789607-b2020580-21cd-11e9-94ca-6db9bd1755cf.png" width=500></p>
   
-AP 목록에서는 BSSID, #Data, #Data, #/s, (CH?)가 변경되는 것을 확인할 수 있고 Station 목록에서는 BSSID, STATION, PWR, Rate, Lost, Frames가 변경되는 것을 확인하였다.
+AP 목록에서는 BSSID, #Data, #Data, #/s, CH이 변경되는 것을 확인할 수 있고 Station 목록에서는 BSSID, STATION, PWR, Rate, Lost, Frames가 변경되는 것을 확인하였다.
 
 그리고 Station 목록의 Frames는 같은 출발지(Station)가 발견되면 카운트가 1씩 늘어나는 것을 확인하였고 Data Frame 중 no data일 경우에는 AP 목록의 #Data가 올라가지 않는 것을 확인하였다.
   
@@ -64,3 +66,9 @@ Wireshark에서 Data Frames(To Ds == 0 and From Ds == 1)에 대한 정보만을 
 가상 무선 어댑터에 대해 airodump-ng를 실행하고 tcpreplay로 Beacon Frame을 보내면 다음과 같이 #Data, #/s를 제외하고 AP 목록에 대한 부분들이 변경되는 것을 확인할 수 있다.(Station 목록에 생성된 부분은 Wireshark에서는 확인할 수 없었으며 가상 어댑터에서 airodump-ng를 실행하면 보인다.)
 
 <p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51789055-60a34780-21c8-11e9-8a15-e5a408da732d.png" width=500></p>
+  
+## Infomation
+
+### 
+
+
