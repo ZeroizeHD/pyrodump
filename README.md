@@ -8,8 +8,6 @@
 ## Frames Analysis
 Beacon, Probe Request, Probe Response, Data Frames 각 프레임을 airodump-ng로 보면 다음과 같이 나타난다.
 
-확인된 것 
-
 ### 1. Beacon
 Wireshark에서 Beacon Frame에 대한 정보만을 얻기위해서는 Display filter에 **wlan.fc.type_subtype==8**를 입력한다.
 
