@@ -12,6 +12,10 @@ Beacon, Probe Request, Probe Response, Data Frames 각 프레임을 airodump-ng�
 Wireshark에서 Beacon Frame에 대한 정보만을 얻기위해서는 Display filter에 **wlan.fc.type_subtype==8**를 입력한다.
 
 <p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51788669-00120b80-21c4-11e9-8a00-c764bf16ee0d.png" width=1000></p>
+  
+가상 무선 어댑터를 생성한 후 생성한 가상 무선 어댑터에 대해 airodump-ng를 실행하고 tcpreplay로 Beacon Frame을 보내면 다음과 같이 #Data, #/s를 제외하고 AP 목록에 대한 부분들이 변경되는 것을 확인할 수 있다.(Station 목록에 생성된 부분은 Wireshark에서는 확인할 수 없었으며 가상 어댑터에서 airodump-ng를 실행하면 보인다.)
+
+<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51789055-60a34780-21c8-11e9-8a15-e5a408da732d.png" width=500></p>
 
 ### 2. Probe Request
 Wireshark에서 Probe Request Frame에 대한 정보만을 얻기위해서는 Display filter에 **wlan.fc.type_subtype==4**를 입력한다.
@@ -24,11 +28,11 @@ Wireshark에서 Probe Response Frame에 대한 정보만을 얻기위해서는 D
 <p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51788817-bfb38d00-21c5-11e9-80c6-3e7037abe7af.png" width=1000></p>
 
 ### 4. Data Frames(To Ds == 1 and From Ds ==0)
-Wireshark에서 Data Frames(To Ds == 1 and From Ds ==0)에 대한 정보만을 얻기위해서는 Display filter에 **wlan.fc.type==2 and wlan.fc.tods == 1 and wlan.fc.fromds == 0**를 입력한다.
+Wireshark에서 Data Frames(To Ds == 1 and From Ds ==0)에 대한 정보만을 얻기위해서는 Display filter에 **wlan.fc.type==2 and wlan.fc.tods==1 and wlan.fc.fromds==0**를 입력한다.
 
 <p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51788905-4bc5b480-21c6-11e9-9c6b-c4dfd3405ac3.png" width=1000></p>
   
 ### 5. Data Frames(To Ds == 0 and From Ds == 1)
-Wireshark에서 Data Frames(To Ds == 0 and From Ds == 1)에 대한 정보만을 얻기위해서는 Display filter에 **wlan.fc.type==2 and wlan.fc.tods == 0 and wlan.fc.fromds == 1**를 입력한다.
+Wireshark에서 Data Frames(To Ds == 0 and From Ds == 1)에 대한 정보만을 얻기위해서는 Display filter에 **wlan.fc.type==2 and wlan.fc.tods==0 and wlan.fc.fromds==1**를 입력한다.
 
 <p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51788925-aa8b2e00-21c6-11e9-989d-c053d3014fa4.png" width=1000></p>
