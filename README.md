@@ -69,6 +69,14 @@ Wireshark에서 Data Frames(To Ds == 0 and From Ds == 1)에 대한 정보만을 
   
 ## Infomation
 
-### 
+### 연결 여부
 
+다음 [사이트](http://www.ktword.co.kr/abbr_view.php?nav=2&m_temp1=4899&id=913)를 참고하면 다음과 같이 To Ds bit가 1일 때 AP와 Station이 연결되었다는 것을 알 수 있다.
 
+<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51790026-55a1e480-21d3-11e9-8e29-cb7b4fcd95cc.png" width=500></p>
+
+### No data 여부
+
+다음 [사이트](http://www.ktword.co.kr/abbr_view.php?nav=2&choice=map&id=761&m_temp1=1170)를 참고하면 다음과 같이 비트위치 b6가 `1`일 경우 no data 것을 알 수 있다.
+
+<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51789993-dd3b2380-21d2-11e9-897b-24577c4673b8.png" width=500></p>
