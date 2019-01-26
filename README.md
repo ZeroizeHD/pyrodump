@@ -54,7 +54,7 @@ Wireshark에서 Data Frames(To Ds == 1 and From Ds ==0)에 대한 정보만을 �
   
 AP 목록에서는 BSSID, #Data, #Data, #/s, (CH?)가 변경되는 것을 확인할 수 있고 Station 목록에서는 BSSID, STATION, PWR, Rate, Lost, Frames가 변경되는 것을 확인하였다.
 
-그리고 Station 목록의 Frames는 같은 출발지(Station)가 발견되면 카운트가 1씩 늘어나는 것을 확인하였다.
+그리고 Station 목록의 Frames는 같은 출발지(Station)가 발견되면 카운트가 1씩 늘어나는 것을 확인하였고 Data Frame 중 no data일 경우에는 AP 목록의 #Data가 올라가지 않는 것을 확인하였다.
   
 ### 5. Data Frames(To Ds == 0 and From Ds == 1)
 Wireshark에서 Data Frames(To Ds == 0 and From Ds == 1)에 대한 정보만을 얻기위해서는 Display filter에 **wlan.fc.type==2 and wlan.fc.tods==0 and wlan.fc.fromds==1**를 입력한다.
