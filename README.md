@@ -3,4 +3,32 @@
 ## How to use
 
 1. pip install -r requirements.txt
-2. python pyrodump.py <interface>
+2. sudo python3 pyrodump.py <interface>
+
+## Frames Analysis
+Beacon, Probe Request, Probe Response, Data Frames 각 프레임을 airodump-ng로 보면 다음과 같이 나타난다.
+
+### 1. Beacon
+Wireshark에서 Beacon Frame에 대한 정보만을 얻기위해서는 Display filter에 **wlan.fc.type_subtype==8**를 입력한다.
+
+<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51788669-00120b80-21c4-11e9-8a00-c764bf16ee0d.png" width=1000></p>
+
+### 2. Probe Request
+Wireshark에서 Probe Request Frame에 대한 정보만을 얻기위해서는 Display filter에 **wlan.fc.type_subtype==4**를 입력한다.
+
+<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51788793-56337e80-21c5-11e9-9a8c-a38031130e77.png" width=1000></p>
+
+### 3. Probe Response
+Wireshark에서 Probe Response Frame에 대한 정보만을 얻기위해서는 Display filter에 **wlan.fc.type_subtype==5**를 입력한다.
+
+<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51788817-bfb38d00-21c5-11e9-80c6-3e7037abe7af.png" width=1000></p>
+
+### 4. Data Frames(To Ds == 1 and From Ds ==0)
+Wireshark에서 Data Frames(To Ds == 1 and From Ds ==0)에 대한 정보만을 얻기위해서는 Display filter에 **wlan.fc.type==2 and wlan.fc.tods == 1 and wlan.fc.fromds == 0**를 입력한다.
+
+<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51788905-4bc5b480-21c6-11e9-9c6b-c4dfd3405ac3.png" width=1000></p>
+  
+### 5. Data Frames(To Ds == 0 and From Ds == 1)
+Wireshark에서 Data Frames(To Ds == 0 and From Ds == 1)에 대한 정보만을 얻기위해서는 Display filter에 **wlan.fc.type==2 and wlan.fc.tods == 0 and wlan.fc.fromds == 1**를 입력한다.
+
+<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51788925-aa8b2e00-21c6-11e9-989d-c053d3014fa4.png" width=1000></p>
