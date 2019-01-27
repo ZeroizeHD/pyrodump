@@ -93,8 +93,8 @@ Station 리스트에서는 BSSID, STATION, Rate, Frames가 변경되는 것을 �
 
 <p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51790026-55a1e480-21d3-11e9-8e29-cb7b4fcd95cc.png" width=500></p>
   
-### No data 여부
+### No data, QoS Data 여부
 
-다음 [사이트](http://www.ktword.co.kr/abbr_view.php?nav=2&choice=map&id=761&m_temp1=1170)를 참고하면 다음과 같이 비트위치 b6가 1일 경우 no data인 것을 알 수 있다.
+다음 [사이트](http://www.ktword.co.kr/abbr_view.php?nav=2&choice=map&id=761&m_temp1=1170)를 참고하면 다음과 같이 비트위치 b6 1일 경우 No Data, b7이 1일 경우 QoS Data인 것을 알 수 있다.
 
 <p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51789993-dd3b2380-21d2-11e9-897b-24577c4673b8.png" width=500></p>
