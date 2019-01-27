@@ -50,9 +50,9 @@ Wireshark에서 Data Frames(To Ds == 1 and From Ds ==0)에 대한 정보만을 �
   
 가상 무선 어댑터에 대해 airodump-ng를 실행하고 tcpreplay로 Data Frame(To Ds == 1 and From Ds == 0)을 보내면 다음과 같이 나타난다.
 
-<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51801948-d1f5ff80-2287-11e9-8b0a-d94f9ae47826.png" width=500></p>
+<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51802764-75e3a900-2290-11e9-8111-7ca19f5a8b26.png" width=500></p>
 
-<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51801955-ed610a80-2287-11e9-93db-7dd4affedfe3.png" width=500></p>
+<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51802752-4e8cdc00-2290-11e9-9c9f-294291455e7c.png" width=500></p>
   
 AP 리스트에서는 BSSID, #Data, #/s, CH, ENC가 변경되는 것을 확인할 수 있었고 Station 리스트에서는 BSSID, STATION, PWR, Rate, Lost, Frames가 변경되는 것을 확인하였다.
 
