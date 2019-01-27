@@ -59,11 +59,11 @@ AP 리스트에서는 BSSID, #Data, #/s, CH, ENC가 변경되는 것을 확인�
 그리고 Station 리스트의 Frames는 같은 출발지(Station)가 발견되면 카운트가 1씩 늘어나는 것을 확인하였고 Data Frame 중 no data일 경우에는 AP 목록의 #Data가 올라가지 않는 것을 확인하였다.
   
 ### 5. Data Frames(To Ds == 0 and From Ds == 1)
-Wireshark에서 Data Frames(To Ds == 0 and From Ds == 1)에 대한 정보만을 얻기위해서는 Display filter에 **wlan.fc.type==2 and wlan.fc.tods==0 and wlan.fc.fromds==1**를 입력한다.
+Wireshark에서 Data Frames(To Ds == 0 and From Ds == 1)에 대한 정보만을 얻기 위해서는 Display filter에 **wlan.fc.type==2 and wlan.fc.tods==0 and wlan.fc.fromds==1**를 입력한다.
 
 <p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51788925-aa8b2e00-21c6-11e9-989d-c053d3014fa4.png" width=1000></p>
   
-가상 무선 어댑터에 대해 airodump-ng를 실행하고 tcpreplay로 Beacon Frame을 보내면 다음과 같이 나타난다.
+가상 무선 어댑터에 대해 airodump-ng를 실행하고 tcpreplay로 Data Frame(To Ds == 0 and From Ds == 1)을 보내면 다음과 같이 나타난다.
 
 <p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51790210-69e6e100-21d5-11e9-933f-c580851f2e7a.png" width=500></p>
 
@@ -74,3 +74,9 @@ Wireshark에서 Data Frames(To Ds == 0 and From Ds == 1)에 대한 정보만을 
 다음 [사이트](http://www.ktword.co.kr/abbr_view.php?nav=2&m_temp1=4899&id=913)를 참고하면 다음과 같이 To Ds bit가 1일 때 AP와 Station이 연결되었다는 것을 알 수 있다.
 
 <p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51790026-55a1e480-21d3-11e9-8e29-cb7b4fcd95cc.png" width=500></p>
+  
+### No data 여부
+
+다음 [사이트](http://www.ktword.co.kr/abbr_view.php?nav=2&choice=map&id=761&m_temp1=1170)를 참고하면 다음과 같이 비트위치 b6가 1일 경우 no data인 것을 알 수 있다.
+
+<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51789993-dd3b2380-21d2-11e9-897b-24577c4673b8.png" width=500></p>
