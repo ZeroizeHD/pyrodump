@@ -32,7 +32,7 @@ Wireshark에서 Probe Request Frame에 대한 정보만을 얻기위해서는 Di
 
 <p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51803079-0c659980-2294-11e9-99d9-40bba00fd75d.png" width=500></p>
 
-BSSID, Rate를 제외하고 Station 리스트에 대한 부분들이 변경되는 것을 확인할 수 있다.
+BSSID를 제외하고 Station 리스트에 대한 부분들이 변경되는 것을 확인할 수 있다.
 
 그리고 Station 목록의 Frames는 같은 출발지(Station)가 발견되면 카운트가 1씩 늘어나는 것을 확인하였다.
 
