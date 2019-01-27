@@ -54,8 +54,9 @@ Wireshark에서 Data Frames(To Ds == 1 and From Ds ==0)에 대한 정보만을 �
 
 <p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51802752-4e8cdc00-2290-11e9-9c9f-294291455e7c.png" width=500></p>
   
-AP 리스트에서는 BSSID, #Data, #/s, CH, ENC가 변경되는 것을 확인할 수 있었고 
-Station 리스트에서는 BSSID, STATION, PWR, Rate, Lost, Frames가 변경되는 것을 확인하였다.
+AP 리스트에서는 BSSID, #Data, #/s, CH, ENC가 변경되는 것을 확인
+
+Station 리스트에서는 BSSID, STATION, PWR, Rate, Lost, Frames가 변경되는 것을 확인
 
 그리고 Station 리스트의 Frames는 같은 출발지(Station)가 발견되면 카운트가 1씩 늘어나는 것을 확인하였고 Data Frame 중 no data일 경우에는 AP 목록의 #Data가 올라가지 않는 것을 확인하였다.
   
