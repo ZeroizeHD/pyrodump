@@ -67,13 +67,15 @@ Wireshark에서 Data Frames(To Ds == 0 and From Ds == 1)에 대한 정보만을 
   
 가상 무선 어댑터에 대해 airodump-ng를 실행하고 tcpreplay로 Data Frame(To Ds == 0 and From Ds == 1)을 보내면 다음과 같이 나타난다.
 
-<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51802271-bee52e80-228b-11e9-8cf6-c1e0bd3b19ae.png" width=500></p>
+<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51802865-729ced00-2291-11e9-8279-f451c81866af.png" width=500></p>
 
-<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51802283-dae8d000-228b-11e9-89af-3dfe7b81d686.png" width=500></p>
+<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51802860-644ed100-2291-11e9-84b1-2628383013f1.png" width=500></p>
 
-AP 리스트에서는 BSSID, PWR, #Data, #/s, CH, ENC가 변경되는 것을 확인할 수 있었다. 
+AP 리스트에서는 BSSID, PWR, #Data, #/s, ENC가 변경되는 것을 확인
 
-그리고 Station 리스트의 Frames는 같은 출발지(Station)가 발견되면 카운트가 1씩 늘어나는 것을 확인하였고 Data Frame 중 no data일 경우에는 AP 목록의 #Data가 올라가지 않는 것을 확인하였다.
+Station 리스트에서는 BSSID, STATION, Rate, Frames가 변경되는 것을 확인
+
+그러나 언제 Station 리스트가 변하는지 파악하지 못함
 
 ## Infomation
 
