@@ -15,9 +15,11 @@ Wireshark에서 Beacon Frame에 대한 정보만을 얻기위해서는 Display f
   
 가상 무선 어댑터를 생성한 후 생성한 가상 무선 어댑터에 대해 airodump-ng를 실행하고 tcpreplay로 Beacon Frame을 보내면 다음과 같이 나타난다.
 
-<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51789055-60a34780-21c8-11e9-8a15-e5a408da732d.png" width=500></p>
+<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51803144-dc6ac600-2294-11e9-920a-8a4f5714947b.png" width=500></p>
 
-#Data, #/s를 제외하고 AP 목록에 대한 부분들이 변경되는 것을 확인할 수 있다.(Station 목록에 생성된 부분은 Wireshark에서는 확인할 수 없었으며 가상 어댑터에서 airodump-ng를 실행하면 보인다.)
+<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51803147-ed1b3c00-2294-11e9-9d67-35232ee34c7e.png" width=500></p>
+
+#Data, #/s를 제외하고 AP 리스트에 대한 부분들이 변경되는 것을 확인할 수 있다.(Station 목록에 생성된 부분은 Wireshark에서는 확인할 수 없었으며 가상 어댑터에서 airodump-ng를 실행하면 보인다.)
 
 ### 2. Probe Request
 Wireshark에서 Probe Request Frame에 대한 정보만을 얻기위해서는 Display filter에 **wlan.fc.type_subtype==4**를 입력한다.
@@ -26,11 +28,15 @@ Wireshark에서 Probe Request Frame에 대한 정보만을 얻기위해서는 Di
   
 가상 무선 어댑터에 대해 airodump-ng를 실행하고 tcpreplay로 Probe Request Frame을 보내면 다음과 같이 나타난다.
 
-<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51789212-d65be300-21c9-11e9-82c4-9e04dad4a43b.png" width=500></p>
+<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51803082-21dac380-2294-11e9-849d-5e2eb241e6d3.png" width=500></p>
 
-BSSID, Rate를 제외하고 Station 목록에 대한 부분들이 변경되는 것을 확인할 수 있다.
+<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51803079-0c659980-2294-11e9-99d9-40bba00fd75d.png" width=500></p>
+
+BSSID, Rate를 제외하고 Station 리스트에 대한 부분들이 변경되는 것을 확인할 수 있다.
 
 그리고 Station 목록의 Frames는 같은 출발지(Station)가 발견되면 카운트가 1씩 늘어나는 것을 확인하였다.
+
+가끔씩 AP 리스트가 추가되는데 이 부분에 대해서는 파악하지 못했다.
 
 ### 3. Probe Response
 Wireshark에서 Probe Response Frame에 대한 정보만을 얻기위해서는 Display filter에 **wlan.fc.type_subtype==5**를 입력한다.
@@ -39,9 +45,11 @@ Wireshark에서 Probe Response Frame에 대한 정보만을 얻기위해서는 D
   
 가상 무선 어댑터에 대해 airodump-ng를 실행하고 tcpreplay로 Probe Response Frame을 보내면 다음과 같이 나타난다.
 
-<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51789380-a3b2ea00-21cb-11e9-8208-773dd084bd57.png" width=500></p>
+<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51802966-ba704400-2292-11e9-82db-df8b69591d1c.png" width=500></p>
   
-Beacons, #Data, #/s를 제외하고 AP 목록에 대한 부분들이 변경되는 것을 확인할 수 있다.
+<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51802978-dbd13000-2292-11e9-9527-30de0dfa86f8.png" width=500></p>
+  
+Beacons, #Data, #/s, CH를 제외하고 AP 리스트에 대한 부분들이 변경되는 것을 확인할 수 있다.
 
 ### 4. Data Frames(To Ds == 1 and From Ds ==0)
 Wireshark에서 Data Frames(To Ds == 1 and From Ds ==0)에 대한 정보만을 얻기 위해서는 Display filter에 **wlan.fc.type==2 and wlan.fc.tods==1 and wlan.fc.fromds==0**를 입력한다.
@@ -54,9 +62,9 @@ Wireshark에서 Data Frames(To Ds == 1 and From Ds ==0)에 대한 정보만을 �
 
 <p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51802752-4e8cdc00-2290-11e9-9c9f-294291455e7c.png" width=500></p>
   
-AP 리스트에서는 BSSID, #Data, #/s, CH, ENC가 변경되는 것을 확인
+AP 리스트에서는 BSSID, #Data, #/s, CH, ENC가 변경되는 것을 확인하였고
 
-Station 리스트에서는 BSSID, STATION, PWR, Rate, Lost, Frames가 변경되는 것을 확인
+Station 리스트에서는 BSSID, STATION, PWR, Rate, Lost, Frames가 변경되는 것을 확인하였다.
 
 그리고 Station 리스트의 Frames는 같은 출발지(Station)가 발견되면 카운트가 1씩 늘어나는 것을 확인하였고 Data Frame 중 no data일 경우에는 AP 목록의 #Data가 올라가지 않는 것을 확인하였다.
   
@@ -71,11 +79,11 @@ Wireshark에서 Data Frames(To Ds == 0 and From Ds == 1)에 대한 정보만을 
 
 <p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51802860-644ed100-2291-11e9-84b1-2628383013f1.png" width=500></p>
 
-AP 리스트에서는 BSSID, PWR, #Data, #/s, ENC가 변경되는 것을 확인
+AP 리스트에서는 BSSID, PWR, #Data, #/s, ENC가 변경되는 것을 확인하였고
 
-Station 리스트에서는 BSSID, STATION, Rate, Frames가 변경되는 것을 확인
+Station 리스트에서는 BSSID, STATION, Rate, Frames가 변경되는 것을 확인하였다.
 
-그러나 언제 Station 리스트가 변하는지 파악하지 못함
+가끔씩 Station 리스트가 추가되는데 이 부분에 대해서는 파악하지 못했다.
 
 ## Infomation
 
