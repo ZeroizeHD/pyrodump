@@ -254,6 +254,7 @@ def get_ap_list(interface, lock):
                     for i in range(len(st_list)):
 
                         if st_list[i][StList.STAION] == st[StList.STAION]:
+                            st_list[i][StList.BSSID] == st[StList.BSSID]
                             st_list[i][StList.AP_RATE] = st[StList.AP_RATE]
                             st_list[i][StList.FRAMES] += 1
 
