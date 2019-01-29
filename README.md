@@ -35,14 +35,26 @@ Aircrack-ng 공식 사이트에서 다음 [페이지](https://www.aircrack-ng.or
   - #### CIPHER
   - #### AUTH
   - #### ESSID
+    Shows the wireless network name. The so-called “SSID”, which can be empty if SSID hiding is activated. In this case, airodump-ng will try to recover the SSID from probe responses and association requests. See this section for more information concerning hidden ESSIDs.
+  
 - ### Station List
   - #### BSSID
   - #### STATION
+    MAC address of each associated station or stations searching for an AP to connect with. Clients not currently associated with an AP have a BSSID of “(not associated)”.
+  
   - #### PWR
   - #### Rate
+  
   - #### Lost
+    Sequence number를 기반으로 10초간 손실된 데이터 패킷의 수이다.
+    
+    ※ airodump-ng 코드에서 확인한 문제점
+    
   - #### Frames
+    Station이 보낸 데이터 패킷의 수이다.
+    
   - #### Probe
+    Station이 Probe Request한 AP의 ESSID이며 현재 Station이 AP와 연결되어 있지 않은 경우 연결하려고 시도하는 AP의 ESSID이다. 
 
 ## Pyrodump Configuration
 
