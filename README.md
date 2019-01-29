@@ -10,7 +10,7 @@ pyrodump는 Beacon Frame, Probe Request Frame, Probe Response Frame, Data Frame�
 1. pip install -r requirements.txt
 2. sudo python3 pyrodump.py <interface>
   
-### 목차
+## 목차
 
 - [Airodump-ng Analysis](#Airodump-ng-Analysis)
   - [AP List](#AP-List)
@@ -85,7 +85,14 @@ Aircrack-ng 공식 사이트에서 다음 [페이지](https://www.aircrack-ng.or
     Station이 Probe Request한 AP의 ESSID이며 현재 Station이 AP와 연결되어 있지 않은 경우 연결하려고 시도하는 AP의 ESSID를 나타낸다.
 
 ## Pyrodump Configuration
-pyrodump는 어떤 AP, Station에 대한 데이터가 처음으로 들어왔는지 아닌지에 따라 변경하는 필드가 다르다. 또한 Beacon Frame, Probe Request Frame, Probe Response Frame, Data Frame 각 프레임 별로도 변경하는 필드가 다른데 표로 작성하면 다음과 같다.
+pyrodump는 어떤 AP, Station에 대한 데이터가 처음으로 들어왔는지 아닌지에 따라 변경하는 필드가 다르다. 또한 Beacon Frame, Probe Request Frame, Probe Response Frame, Data Frame 각 프레임 별로도 변경하는 필드가 다른데 표로 작성하면 다음과 같다.(괄호는 초기화되는 값)
+
+Frame | BSSID | PWR | Beacons | # Data | CH | MB | ENC | CIPHER | AUTH | ESSID
+:--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--:
+Beacon | O | O | X(1) | X(0) | O | O | O | O | O | O
+Probe Response | O | O | X(0) | X(0) | X(1) | O | O | O | O | O
+Data(ToDs=1, FromDs=0) | O | X(-1) | X(0) | X(Data=1, NoData=0) | X(1) | X(-1) | X | X | X | X
+Data(ToDs=0, FromDs=1) | O | O | 0 | X(Data=1, NoData=0) | X(1) | X(-1) | X | X | X | X
 
 ## Frames Analysis
 Beacon, Probe Request, Probe Response, Data Frames 각 프레임을 airodump-ng로 보면 다음과 같이 나타난다.
