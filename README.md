@@ -22,8 +22,24 @@ pyrodumpëŠ” Beacon Frame, Probe Request Frame, Probe Response Frame, Data Frameì
 ## Airodump-ng Analysis
 
 - ### AP List
-
+  - #### BSSID
+  - #### PWR
+  - #### Beacons
+  - #### #Data, #/s
+  - #### CH
+  - #### MB
+  - #### ENC
+  - #### CIPHER
+  - #### AUTH
+  - #### ESSID
 - ### Station List
+  - #### BSSID
+  - #### STATION
+  - #### PWR
+  - #### Rate
+  - #### Lost
+  - #### Frames
+  - #### Probe
 
 ## Pyrodump Configuration
 
