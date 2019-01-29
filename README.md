@@ -1,4 +1,7 @@
 # pyrodump
+pyrodump는 Beacon Frame, Probe Request Frame, Probe Response Frame, Data Frame을 캡처해서 분석하는 툴이다. 
+
+※ airodump-ng와 유사하게 동작한다. 
 
 ## How to use
 
