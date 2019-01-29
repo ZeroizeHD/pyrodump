@@ -26,35 +26,63 @@ Aircrack-ng 공식 사이트에서 다음 [페이지](https://www.aircrack-ng.or
 
 - ### AP List
   - #### BSSID
+    AP의 MAC 주소를 나타낸다.
+  
   - #### PWR
+    AP의 신호 세기를 나타내며 PWR이 -1일 경우 드라이버에서 신호 세기에 대한 정보를 제공하지 않는 것을 의미한다.
+  
   - #### Beacons
+    캡처된 Beacon 프레임의 수를 나타낸다.
+  
   - #### #Data, #/s
+    #Data는 브로드캐스트를 포함한 캡처된 데이터 패킷의 수를 나타내며 #/s는 지난 10초 동안 측정된 초당 데이터 패킷의 수를 나타낸다.
+    
+    ※ pyrodump는 #/s를 지원하지 않는다.
+  
   - #### CH
+    Beacon Frame으로부터 얻은 채널 번호를 나타낸다.
+  
   - #### MB
+    숫자는 AP가 지원하는 최대 속도를 나타내고 .은 short preamble을 지원함을 나타내며 e는 QoS를 사용 가능할 경우 나타낸다.
+  
   - #### ENC
+    사용된 암호화 알고리즘을 나타낸다.
+  
   - #### CIPHER
+    사용된 암호화 방식을 나타낸다.
+  
   - #### AUTH
+    사용된 인증 프로토콜을 나타낸다.
+  
   - #### ESSID
-    Shows the wireless network name. The so-called “SSID”, which can be empty if SSID hiding is activated. In this case, airodump-ng will try to recover the SSID from probe responses and association requests. See this section for more information concerning hidden ESSIDs.
+    AP의 이름을 나타낸다.
   
 - ### Station List
   - #### BSSID
+    Station과 연결된 AP의 MAC 주소를 나타낸다.
+    
+    조사한 바에 의하면 probe request는 단지 요청할 뿐 연결되었다는 것을 의미하는 것이 아니다 이 사이트를 참조하면 다음과 같이 나온다.
+    ToDs가 1일 경우 연결되었다고 한다.
+  
   - #### STATION
-    MAC address of each associated station or stations searching for an AP to connect with. Clients not currently associated with an AP have a BSSID of “(not associated)”.
+    Station의 MAC 주소를 나타낸다.
   
   - #### PWR
+    Station의 신호 세기를 나타내며 PWR이 -1일 경우 드라이버에서 신호 세기에 대한 정보를 제공하지 않는 것을 의미한다.
+  
   - #### Rate
+    Rate는 '36e-24'와 같이 표시되는데 오른쪽에 36은 마지막으로 AP에서 Station으로 데이터를 보낸 속도이며 왼쪽의 24는 마지막으로 Station에서 AP로 데이터를 보낸 속도이다. 36 옆에 있는 e는 QoS를 지원한다는 것을 의미한다.
   
   - #### Lost
-    Sequence number를 기반으로 10초간 손실된 데이터 패킷의 수이다.
+    Sequence number를 기반으로 10초간 손실된 데이터 패킷의 수를 나타낸다.
     
     ※ airodump-ng 코드에서 확인한 문제점
     
   - #### Frames
-    Station이 보낸 데이터 패킷의 수이다.
+    Station이 보낸 데이터 패킷의 수를 나타낸다.
     
   - #### Probe
-    Station이 Probe Request한 AP의 ESSID이며 현재 Station이 AP와 연결되어 있지 않은 경우 연결하려고 시도하는 AP의 ESSID이다. 
+    Station이 Probe Request한 AP의 ESSID이며 현재 Station이 AP와 연결되어 있지 않은 경우 연결하려고 시도하는 AP의 ESSID를 나타낸다.
 
 ## Pyrodump Configuration
 
