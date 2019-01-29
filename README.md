@@ -20,6 +20,7 @@ pyrodump는 Beacon Frame, Probe Request Frame, Probe Response Frame, Data Frame�
   - [Wheher to No data, QoS data](#Wheher-to-No-data-QoS-data)
 
 ## Airodump-ng Analysis
+다음 [사이트](https://www.aircrack-ng.org/doku.php?id=airodump-ng)를 보면 airodump-ng 프로그램의 각 필드에 대한 설명이 나와있는데 요약해보면 다음과 같다.
 
 - ### AP List
   - #### BSSID
