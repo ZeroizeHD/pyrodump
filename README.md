@@ -106,13 +106,13 @@ Station 리스트에서는 BSSID, STATION, Rate, Frames가 변경되는 것을 �
 
 ## Infomation
 
-- ### 연결 여부
+- ### Whether to connect
 
 다음 [사이트](http://www.ktword.co.kr/abbr_view.php?nav=2&m_temp1=4899&id=913)를 참고하면 다음과 같이 To Ds bit가 1일 때 AP와 Station이 연결되었다는 것을 알 수 있다.
 
 <p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51790026-55a1e480-21d3-11e9-8e29-cb7b4fcd95cc.png" width=500></p>
   
-- ### No data, QoS Data 여부
+- ### Wheher to No data, QoS data
 
 다음 [사이트](http://www.ktword.co.kr/abbr_view.php?nav=2&choice=map&id=761&m_temp1=1170)를 참고하면 다음과 같이 비트위치 b6 1일 경우 No Data, b7이 1일 경우 QoS Data인 것을 알 수 있다.
 
