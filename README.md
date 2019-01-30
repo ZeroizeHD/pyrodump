@@ -85,6 +85,9 @@ Aircrack-ng 공식 사이트에서 다음 [페이지](https://www.aircrack-ng.or
   - #### Lost
     Sequence number를 기반으로 10초간 손실된 데이터 패킷의 수를 나타낸다.
     
+    airodump에서는 sequenct number 차이가 1000 이상이면 Lost의 수가 증가하지 않는다.
+    <p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51961534-65098200-24a0-11e9-9dc0-d1a795119add.png" width=500></p>
+    
   - #### Frames
     Station이 보낸 데이터 패킷의 수를 나타낸다.
     
