@@ -187,7 +187,7 @@ def get_ap_list(interface, lock):
 
             if len(ap_list) != 0:
                 for i in range(len(ap_list)):
-_
+
                     if ap_list[i][ApList.BSSID] == ap[ApList.BSSID]:
                         ap_list[i][ApList.DATA] += ap[ApList.DATA]
                         break
@@ -256,7 +256,6 @@ _
                         if st_list[i][StList.STAION] == st[StList.STAION]:
                             st_list[i][StList.BSSID] == st[StList.BSSID]
                             st_list[i][StList.AP_RATE] = st[StList.AP_RATE]
-                            st_list[i][StList.FRAMES] += 1
 
                             seq_diff = (st[StList.SEQ] - st_list[i][StList.SEQ]) - 1
                             st_list[i][StList.SEQ] = st[StList.SEQ]
