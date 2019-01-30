@@ -61,8 +61,13 @@ Aircrack-ng 공식 사이트에서 다음 [페이지](https://www.aircrack-ng.or
   - #### BSSID
     Station과 연결된 AP의 MAC 주소를 나타낸다.
     
-    조사한 바에 의하면 probe request는 단지 요청할 뿐 연결되었다는 것을 의미하는 것이 아니다 이 사이트를 참조하면 다음과 같이 나온다.
-    ToDs가 1일 경우 연결되었다고 한다.
+    Frames Analysis 항목의 [2. Probe Request](#2-Probe-Request)에서 airodump가 Probe Request에 대해 제공하는 정보를 보면 다음과 같은데 Station 리스트의 BSSID를 보면 모두 (not associated)로 표시되는 것을 확인할 수 있다. 이렇게 표시되는 이유는 다음 [사이트]에서 확인할 수 있듯이 실제 Probe Request는 AP를 탐색하기 위해 사용할 뿐 연결은 하지 않기 때문이다.
+    
+    <p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51955970-316f2d80-2489-11e9-9e57-2c604398ad03.png" width=1000></p>
+    
+    연결을 확인하는 다양한 방법이 있으나 그 중 다음 [사이트]에서 확인할 수 있듯이 Data Frame의 To-DS bit가 1인 경우에 AP와 Station이 연결된 것을 확인할 수 있다.
+    
+    <p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51956009-595e9100-2489-11e9-9d19-efa736b3caaf.png" width=1000></p>
   
   - #### STATION
     Station의 MAC 주소를 나타낸다.
@@ -72,6 +77,8 @@ Aircrack-ng 공식 사이트에서 다음 [페이지](https://www.aircrack-ng.or
   
   - #### Rate
     Rate는 '36e-24'와 같이 표시되는데 오른쪽에 36은 마지막으로 AP에서 Station으로 데이터를 보낸 속도이며 왼쪽의 24는 마지막으로 Station에서 AP로 데이터를 보낸 속도이다. 36 옆에 있는 e는 QoS를 지원한다는 것을 의미한다.
+    
+    특정 Data Frame이 QoS를 지원하는지 확인하는 방법은 Infomation 항목의 [Wheher to No data, QoS data](Wheher-to-No-data-QoS-data)에서 확인할 수 있다.
   
   - #### Lost
     Sequence number를 기반으로 10초간 손실된 데이터 패킷의 수를 나타낸다.
@@ -83,16 +90,6 @@ Aircrack-ng 공식 사이트에서 다음 [페이지](https://www.aircrack-ng.or
     
   - #### Probe
     Station이 Probe Request한 AP의 ESSID이며 현재 Station이 AP와 연결되어 있지 않은 경우 연결하려고 시도하는 AP의 ESSID를 나타낸다.
-
-## Pyrodump Configuration
-pyrodump는 어떤 AP, Station에 대한 데이터가 처음으로 들어왔는지 아닌지에 따라 변경하는 필드가 다르다. 또한 Beacon Frame, Probe Request Frame, Probe Response Frame, Data Frame 각 프레임 별로도 변경하는 필드가 다른데 표로 작성하면 다음과 같다.(괄호는 초기화되는 값)
-
-Frame | BSSID | PWR | Beacons | # Data | CH | MB | ENC | CIPHER | AUTH | ESSID
-:--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--:
-Beacon | O | O | X(1) | X(0) | O | O | O | O | O | O
-Probe Response | O | O | X(0) | X(0) | X(1) | O | O | O | O | O
-Data(ToDs=1, FromDs=0) | O | X(-1) | X(0) | X(Data=1, NoData=0) | X(1) | X(-1) | X | X | X | X
-Data(ToDs=0, FromDs=1) | O | O | 0 | X(Data=1, NoData=0) | X(1) | X(-1) | X | X | X | X
 
 ## Frames Analysis
 Beacon, Probe Request, Probe Response, Data Frames 각 프레임을 airodump-ng로 보면 다음과 같이 나타난다.
@@ -176,14 +173,8 @@ Station 리스트에서는 BSSID, STATION, Rate, Frames가 변경되는 것을 �
 
 ## Infomation
 
-- ### Whether to connect
-
-다음 [사이트](http://www.ktword.co.kr/abbr_view.php?nav=2&m_temp1=4899&id=913)를 참고하면 다음과 같이 To Ds bit가 1일 때 AP와 Station이 연결되었다는 것을 알 수 있다.
-
-<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51790026-55a1e480-21d3-11e9-8e29-cb7b4fcd95cc.png" width=500></p>
-  
 - ### Wheher to No data, QoS data
 
 다음 [사이트](http://www.ktword.co.kr/abbr_view.php?nav=2&choice=map&id=761&m_temp1=1170)를 참고하면 다음과 같이 비트위치 b6 1일 경우 No Data, b7이 1일 경우 QoS Data인 것을 알 수 있다.
 
-<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51789993-dd3b2380-21d2-11e9-897b-24577c4673b8.png" width=500></p>
+<p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51956394-d1798680-248a-11e9-9b54-6cfa80124e1b.png" width=500></p>
