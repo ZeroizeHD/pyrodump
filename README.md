@@ -37,6 +37,8 @@ Aircrack-ng 공식 사이트에서 다음 [페이지](https://www.aircrack-ng.or
   - #### #Data, #/s
     #Data는 브로드캐스트를 포함한 캡처된 데이터 패킷의 수를 나타내며 #/s는 지난 10초 동안 측정된 초당 데이터 패킷의 수를 나타낸다.
     
+    데이터 패킷 중 No Data 패킷은 해당 필드의 수를 증가시키지 않는다. No Data 패킷에 대한 자세한 정보는 Infomation 항목의 [Wheher to No data, QoS data](#Wheher-to-No-data-QoS-data)에서 확인할 수 있다.
+    
     ※ pyrodump는 #/s를 지원하지 않는다.
   
   - #### CH
@@ -67,7 +69,7 @@ Aircrack-ng 공식 사이트에서 다음 [페이지](https://www.aircrack-ng.or
     
     연결을 확인하는 다양한 방법이 있으나 그 중 다음 [사이트]에서 확인할 수 있듯이 Data Frame의 To-DS bit가 1인 경우에 AP와 Station이 연결된 것을 확인할 수 있다.
     
-    <p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51956009-595e9100-2489-11e9-9d19-efa736b3caaf.png" width=1000></p>
+    <p align="center"><image src = "https://user-images.githubusercontent.com/39123255/51956009-595e9100-2489-11e9-9d19-efa736b3caaf.png" width=500></p>
   
   - #### STATION
     Station의 MAC 주소를 나타낸다.
@@ -76,14 +78,12 @@ Aircrack-ng 공식 사이트에서 다음 [페이지](https://www.aircrack-ng.or
     Station의 신호 세기를 나타내며 PWR이 -1일 경우 드라이버에서 신호 세기에 대한 정보를 제공하지 않는 것을 의미한다.
   
   - #### Rate
-    Rate는 '36e-24'와 같이 표시되는데 오른쪽에 36은 마지막으로 AP에서 Station으로 데이터를 보낸 속도이며 왼쪽의 24는 마지막으로 Station에서 AP로 데이터를 보낸 속도이다. 36 옆에 있는 e는 QoS를 지원한다는 것을 의미한다.
+    Rate는 radiotap의 Rate 필드에서 확인할 수 있으며 '36e-24'와 같이 표시되는데 오른쪽에 36은 마지막으로 AP에서 Station으로 데이터를 보낸 속도이며 왼쪽의 24는 마지막으로 Station에서 AP로 데이터를 보낸 속도이다. 36 옆에 있는 e는 QoS를 지원한다는 것을 의미한다.
     
-    특정 Data Frame이 QoS를 지원하는지 확인하는 방법은 Infomation 항목의 [Wheher to No data, QoS data](Wheher-to-No-data-QoS-data)에서 확인할 수 있다.
+    특정 Data Frame이 QoS를 지원하는지 확인하는 방법은 Infomation 항목의 [Wheher to No data, QoS data](#Wheher-to-No-data-QoS-data)에서 확인할 수 있다.
   
   - #### Lost
     Sequence number를 기반으로 10초간 손실된 데이터 패킷의 수를 나타낸다.
-    
-    ※ airodump-ng 코드에서 확인한 문제점
     
   - #### Frames
     Station이 보낸 데이터 패킷의 수를 나타낸다.
