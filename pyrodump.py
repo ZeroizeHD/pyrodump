@@ -187,7 +187,7 @@ def get_ap_list(interface, lock):
 
             if len(ap_list) != 0:
                 for i in range(len(ap_list)):
-
+_
                     if ap_list[i][ApList.BSSID] == ap[ApList.BSSID]:
                         ap_list[i][ApList.DATA] += ap[ApList.DATA]
                         break
